@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10th Anniversary</title>
+    <link rel="icon" type="image/png" href="images/sark_logo_1_32x32.png">
+    <link rel="stylesheet" href="public/css/style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/48336ffa01.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+
+    <style>
+        body.modal-open {
+            overflow: hidden;
+            /* Prevent scrolling of the main content */
+        }
+
+        /* Styles for the image grid */
+        #imageGrid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .fullscreen-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 100;
+        }
+
+        /* Styles for image containers */
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+
+        /* Styles for images */
+        .image {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Hover effect for images */
+        .image:hover {
+            transform: scale(1.1);
+        }
+
+        /* Caption styles */
+        .image::before {
+            content: attr(data-caption);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .image-container:hover .image::before {
+            opacity: 1;
+        }
+
+
+
+        /* Styles for the navigation buttons */
+        .fullscreen-button,
+        .prev-button,
+        .next-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 24px;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .prev-button {
+            left: 10px;
+        }
+
+        .next-button {
+            right: 10px;
+        }
+
+        .fullscreen-button {
+            top: 20px;
+            right: 20px;
+        }
+
+
+        /* Media query  */
+        @media (max-width: 1200px) {
+            #imageGrid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            #imageGrid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            #imageGrid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* keyboard navigation */
+        .fullscreen-button:focus,
+        .prev-button:focus,
+        .next-button:focus {
+            outline: 2px solid white;
+        }
+
+        .image-container:focus .image::before {
+            opacity: 1;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <section class="sticky top-0 z-50">
+        <nav class="bg-white border-gray-200 dark:bg-gray-900">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <img src="/images/sark logo.png" class="logo h-10 md:h-14" alt="Flowbite Logo" />
+
+                    <span class="self-center text-2xl text-teal-950 font-semibold whitespace-nowrap dark:text-white">THE
+                        AKWAMUHENE
+                        <br />
+                        <span class="text-base text-teal-900 hidden sm:block ">OF AKYEM AWISA TRADITIONAL COUNCIL</span>
+                </a>
+                <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                    <!-- <a href="contact.html"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Appointments</button></a> -->
+                    <button data-collapse-toggle="navbar-cta" type="button"
+                        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        aria-controls="navbar-cta" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 17 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 1h15M1 7h15M1 13h15" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+                    <ul
+                        class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                        <li>
+                            <a href="index.html"
+                                class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
+                                aria-current="page">Home</a>
+                        </li>
+                        <li>
+                            <a href="bio.html"
+                                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Biography</a>
+                        </li>
+                        <!-- <li>
+                <a href="foundation.html" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 d:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Foundation</a>
+              </li> -->
+                        <li>
+                            <a href="Gallery.html"
+                                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Gallery</a>
+                        </li>
+                        <li>
+                            <a href="contact.html"
+                                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Appointments</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <!-- End of Navbar -->
+
+    <!-- Text Intro -->
+    <div class="pt-5">
+        <h2 class="text-center font-bold text-3xl"><span class="text-teal-700">Photo Story</span> Of the 10th
+            Anniversary</h2>
+        <h3 class="text-center font-medium text-xl">NANA YAW BARIMA TWUM SARKODIE I <br> <span
+                class="text-lg text-teal-800">Akwamuhene of Akyem Awisa</span> </h3>
+        <p class=""></p>
+
+    </div>
+
+
+
+
+    <!-- The Images -->
+    <div class="grid grid-cols-4 gap-4 lg:gap-6 pt-8" id="imageGrid">
+        <div class="image-container">
+            <img src="images/10th_Anni/" data-caption="Image caption 1" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <!-- Add more image divs here -->
+        <div class="image-container">
+            <img src="images/10th_Anni/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/10th_Anni/" data-caption="Image caption 3" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/10th_Anni/" data-caption="Image caption 4" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/10th_Anni/" data-caption="Image caption 5" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/10th_Anni/" data-caption="Image caption 6" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <!-- 2 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 3" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 4" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 5" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 6" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <!-- 3 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <!-- starts here 1 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  2 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  3 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  4 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  5 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  6 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  7 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  8 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  9 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  10 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!-- 11 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  12 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  13 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  14 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/10th An" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  15 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  16 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  17 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+
+        <!--  18 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  19 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  20 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  21 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  22 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  23 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  24 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  25 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  26 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  27 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  28 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  29 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  30 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  31 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  32 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  33 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  34 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  35 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/10th Ann" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  36 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  37 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  38 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  38 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  38 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  38 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  38 -->
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+        <!--  38 -->
+        <div class="image-container">
+            <img src="images/
+  " data-caption="Image caption 2" alt="View of the City in the Mountains" class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images/" data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+        <div class="image-container">
+            <img src="images " data-caption="Image caption 2" alt="View of the City in the Mountains"
+                class="image cursor-zoom-in" />
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+        <!---------------------------- FOOTER --------------------------------------->
+        <footer class="bg-slate-300 rounded-lg shadow dark:bg-gray-900 m-4">
+            <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+                <div class="sm:flex sm:items-center sm:justify-between">
+                    <a href="index.html" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                        <img src="/images/sark logo.png" class="h-8" alt="sark Logo" />
+                        <span
+                            class="self-center text-2xl text-teal-950 font-semibold whitespace-nowrap dark:text-white">THE
+                            AKWAMUHENE
+                            <br />
+                            <span class="text-base text-teal-900 hidden sm:block">OF AKYEM AWISA TRADITIONAL
+                                COUNCIL</span></span>
+                    </a>
+                    <ul
+                        class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                        <li>
+                            <a href="bio.html" class="hover:underline me-4 md:me-6">About</a>
+                        </li>
+                        <li>
+                            <a href="Privacy-Policy.html" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="contact.html" class="hover:underline">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="index.html"
+                        class="hover:underline">THE AKWAMUHENE</a>. All Rights Reserved.</span>
+            </div>
+        </footer>
+
+        <!--End FOOTER -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Get all the images with the class 'cursor-zoom-in'
+                const images = document.querySelectorAll('.cursor-zoom-in');
+                let currentImageIndex = 0; // Keep track of the currently displayed image index
+
+                // Function to create the modal with image and controls
+                function createModal(imageSrc, imageAlt) {
+                    // Create a modal container
+                    const modal = document.createElement('div');
+                    modal.classList.add('fixed', 'top-0', 'left-0', 'h-full', 'w-full', 'bg-black', 'bg-opacity-80', 'flex', 'items-center', 'justify-center', 'z-50');
+
+                    // Disable scroll
+                    document.body.classList.add('modal-open');
+
+                    // Create an image element for the zoomed-in image
+                    const zoomedImage = document.createElement('img');
+                    zoomedImage.src = imageSrc;
+                    zoomedImage.alt = imageAlt;
+                    zoomedImage.classList.add('max-h-full', 'max-w-full');
+
+                    // Create buttons for navigation and full screen
+                    const backButton = document.createElement('button');
+                    backButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+                    backButton.classList.add('prev-button');
+                    backButton.addEventListener('click', () => {
+                        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                        updateImage();
+                    });
+
+                    const forwardButton = document.createElement('button');
+                    forwardButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+                    forwardButton.classList.add('next-button');
+                    forwardButton.addEventListener('click', () => {
+                        currentImageIndex = (currentImageIndex + 1) % images.length;
+                        updateImage();
+                    });
+
+                    const fullScreenButton = document.createElement('button');
+                    fullScreenButton.innerHTML = '<i class="fas fa-expand"></i>';
+                    fullScreenButton.classList.add('fullscreen-button');
+                    fullScreenButton.addEventListener('click', () => {
+                        if (modal.requestFullscreen) {
+                            modal.requestFullscreen();
+                        } else if (modal.webkitRequestFullscreen) { /* Safari */
+                            modal.webkitRequestFullscreen();
+                        } else if (modal.msRequestFullscreen) { /* IE11 */
+                            modal.msRequestFullscreen();
+                        }
+                    });
+
+                    // Function to update the image displayed in the modal
+                    function updateImage() {
+                        zoomedImage.src = images[currentImageIndex].src;
+                        zoomedImage.alt = images[currentImageIndex].alt;
+                    }
+
+                    // Append elements to the modal
+                    modal.appendChild(zoomedImage);
+                    modal.appendChild(fullScreenButton);
+                    modal.appendChild(backButton);
+                    modal.appendChild(forwardButton);
+
+                    // Add click event listener to close the modal when clicked outside the image
+                    modal.addEventListener('click', function (event) {
+                        if (event.target === this) {
+                            this.remove();
+                            document.body.classList.remove('modal-open');
+                        }
+                    });
+
+                    // Append the modal to the body
+                    document.body.appendChild(modal);
+                }
+
+                // Add click event listener to each image
+                images.forEach((image, index) => {
+                    image.addEventListener('click', function () {
+                        currentImageIndex = index;
+                        createModal(this.src, this.alt);
+                    });
+                });
+            });
+
+
+
+        </script>
+
+        <script src="public/js/script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+        <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
+        <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+</body>
+
+</html>

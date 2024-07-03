@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akwamuhene - Akyem Awisa</title>
+  <link rel="icon" type="image/png" href="images/sark_logo_1_32x32.png">
+  <link rel="stylesheet" href="public/css/style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel=" stylesheet" />
+  <script src="https://kit.fontawesome.com/48336ffa01.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+  <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+  <link rel="stylesheet" href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css" />
+  <!-- Splide -->
+  <script src=" https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <link href=" https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+
+
+
+  <style>
+    /* Slideshow container */
+    .slideshow-container {
+      width: 1500px;
+      position: relative;
+
+
+    }
+
+    .slideshow-container {
+      width: 100%;
+      height: 700px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slideshow-container .img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      object-fit: cover;
+    }
+
+    /* Ensure the image covers the container */
+
+
+
+    /* The dots/bullets/indicators */
+    .dot {
+      height: 13px;
+      width: 13px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active {
+      background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+      -webkit-animation-name: fade;
+      -webkit-animation-duration: 1.5s;
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @-webkit-keyframes fade {
+      from {
+        opacity: .4
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    @keyframes fade {
+      from {
+        opacity: .4
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+      .text {
+        font-size: 11px
+      }
+    }
+
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <section class="sticky top-0 z-50">
+    <nav class="bg-white border-gray-200 dark:bg-gray-900 ">
+      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src="/images/sark logo.png" class="logo h-10 md:h-14" alt="Flowbite Logo" />
+
+          <span class="self-center text-2xl text-teal-950 font-semibold whitespace-nowrap dark:text-white">THE
+            AKWAMUHENE
+            <br />
+            <span class="text-base text-teal-900 hidden sm:block ">OF AKYEM AWISA TRADITIONAL COUNCIL</span>
+        </a>
+        <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <!-- <a href="contact.html"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Appointments</button></a> -->
+          <button data-collapse-toggle="navbar-cta" type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-cta" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15" />
+            </svg>
+          </button>
+        </div>
+        <div class="items-end justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+          <ul
+            class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <li>
+              <a href="index.html"
+                class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
+                aria-current="page">Home</a>
+            </li>
+            <li>
+              <a href="bio.html"
+                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Profile</a>
+            </li>
+            <!-- <li>
+                  <a href="foundation.html" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 d:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Foundation</a>
+                </li> -->
+            <li>
+              <a href="Gallery.html"
+                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Gallery</a>
+            </li>
+            <li>
+              <a href="contact.html"
+                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Appointments</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </section>
+  <!-- End of Navbar -->
+
+  <!-- Caro-Slider -->
+  <div class="slideshow-container ">
+
+    <div class="mySlides fade">
+      <img src="images/Slider/b.jpg" alt="img-1">
+    </div>
+
+    <!-- <div class="mySlides fade">
+      <img src="images/Carosel/c.jpg" alt="img-2">
+    </div> -->
+
+    <!-- <div class="mySlides fade">
+      <img src="images/Carosel/for_carosel.jpg" alt="img-3">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="images/Carosel/for_carosel.jpg" alt="img-3">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="images/Carosel/for_carosel.jpg" alt="img-3">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="images/Carosel/for_carosel.jpg" alt="img-3">
+    </div> -->
+
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  </div>
+  <br>
+
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <!-- <span class="dot" onclick="currentSlide(4)"></span>
+    <span class="dot" onclick="currentSlide(5)"></span>
+    <span class="dot" onclick="currentSlide(6)"></span> -->
+  </div>
+
+  <!-- End Caro-slider -->
+
+
+
+
+  <!-- Two Horizontal Lines -->
+  <div class=" p-8 text-center">
+    <div class="flex justify-center items-center mb-4">
+      <div class="border-t border-zinc-400 flex-grow"></div>
+      <img src="images/sark_logo_200x200-removebg-preview.png" alt="Palace Logo" class="mx-4" />
+      <div class="border-t border-zinc-400 flex-grow"></div>
+    </div>
+    <h3 class="text-center font-medium text-2xl">NANA YAW BARIMA TWUM SARKODIE I <br> <span
+        class="text-l font-bold text-teal-900">THE ASONA CLAN</span></h3>
+    <h2 class="text-center font-bold text-4xl">Akwamuhene of Akyem Awisa</h2>
+    <p class="max-w-3xl mx-auto font-semibold pt-3">
+      The meaning of Awisa given at the time when the said family were cultivating guinea grains at the hills of
+      Wisabere, near Asene.
+      This Agona family came from Dnekyera a town Mmereyemu which means that (good; nothing hard for).
+      Some tradition says that this town was not the town for the family as thought of but a certain town at Ashante
+      called Ayesem was their proper town.
+      When they were at Ayesem, their Kings were the people at Dweso who bear the name Agona family.
+    </p>
+  </div>
+
+
+
+
+
+  <!-- Card 1 item-->
+  <section class="p-8 bg-neutral-200">
+    <div class="container mx-auto">
+      <div class="mb-20 grid lg:grid-cols-2">
+        <div class="lg:pr-10"><img src="images/main.jpeg" alt="background image"
+            class="h-full min-h-[20rem] w-full rounded-xl object-cover" /></div>
+        <div class="grid items-center py-12 px-2 lg:ml-6 lg:py-20">
+
+          <h3
+            class="block antialiased tracking-normal font-sans font-semibold leading-snug text-blue-gray-900 mb-4 !text-2xl lg:!text-3xl">
+            10th Anniversary of Nana Yaw Barima Twum <br> Sarkodie I</h3>
+          <p class="block antialiased font-sans text-xl leading-relaxed text-inherit mb-4 font-normal !text-gray-500">
+          </p>
+          <h6
+            class="block antialiased tracking-normal font-sans text-base leading-relaxed text-inherit mb-10 font-semibold">
+            Cheers to a decade of Nana Yaw Barima Twum Sarkodie's inspiring journey, marked by resilience, growth, and
+            boundless achievements. Here's to a legacy that continues to shine bright, illuminating the path for many
+            more triumphant years ahead. Happy 10th Anniversary, Nana Yaw Barima Twum Sarkodie!</h6>
+          <div class="w-max"><a href="10th_anni.html"><button
+                class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50  text-xs py-2 px-4 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+                type="button">View More</button><a /></div>
+        </div>
+      </div>
+      <div class="mb-20 grid lg:grid-cols-2">
+        <div class="grid items-center py-12 px-2 lg:mr-16 lg:py-20">
+
+          <h3
+            class="block antialiased tracking-normal font-sans font-semibold leading-snug text-blue-gray-900 mb-4 text-2xl lg:!text-3xl">
+            10 Years of Wisdom, Compassion, and Service: Nana Yaw Barima Twum Sarkodie I's Anniversary Charity Visit
+          </h3>
+          <p class="block antialiased font-sans text-xl leading-relaxed text-inherit mb-4 font-normal !text-gray-500">
+          </p>
+          <h6
+            class="block antialiased tracking-normal font-sans text-base leading-relaxed text-inherit mb-10 font-semibold">
+            On the auspicious occasion of his 10th Anniversary, Nana Yaw Barima Twum Sarkodie I graced a local school
+            with his benevolent spirit, spreading joy and hope with acts of charity. His dedication to uplifting
+            communities serves as a beacon of inspiration for us all. Here's to a decade of compassion and generosity,
+            and to many more years of making a difference.</h6>
+          <div class="w-max"><button
+              class="align-middle select-none font-sans font-bold text-center uppercase transition-all text-xs py-2 px-4 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+              type="button">View More</button></div>
+        </div>
+        <div class="row-start-1 lg:row-auto lg:pl-10"><img src="images/Foundation/2.jpg" alt="background image"
+            class="h-full min-h-[20rem] w-full rounded-xl object-cover" /></div>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+
+  <!-- Card  -->
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 gap-2 min-h-[140px] place-items-center overflow-x-scroll rounded-lg p-6 lg:overflow-visible">
+    <figure class="relative  h-96 ">
+      <img class="object-cover object-center w-full h-full rounded-xl" src="images/Foundation/1.jpg"
+        alt="nature image" />
+
+      <figcaption
+        class="absolute bottom-8 left-2/4 flex w-[calc(100%-4rem)] -translate-x-2/4 justify-between rounded-xl border border-white bg-white/75 py-4 px-6 shadow-lg shadow-black/5 saturate-200 backdrop-blur-sm">
+
+        <h3>Nana's donation of healthcare equipment significantly enhances medical services and community health.</h3>
+
+      </figcaption>
+    </figure>
+
+    <!-- 2 -->
+    <figure class="relative h-96">
+      <img class="object-cover object-center w-full h-full rounded-xl" src="images/Health/2.jpg" alt="nature image" />
+      <figcaption
+        class="absolute bottom-8 left-2/4 flex w-[calc(100%-4rem)] -translate-x-2/4 justify-between rounded-xl border border-white bg-white/75 py-4 px-6 shadow-lg shadow-black/5 saturate-200 backdrop-blur-sm">
+        <h3>A group picture with Nana after the inter-schools quiz competition, 16th December, 2023</h3>
+      </figcaption>
+    </figure>
+
+  </div>
+
+
+
+
+  <!-- Our Work Section -->
+  <section class="bg-gray-200 py-20 mb-5">
+    <div class="container mx-auto">
+      <h2 class="section-title text-3xl font-bold mb-8 text-center">EVENTS</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Work Item 1 -->
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+          <img src="images/kingship/34.jpg" alt="Education Programs" class="w-full">
+          <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+            <h3 class="text-l font-semibold text-white m-4">A section of the procession during Nana's Enstoolment</h3>
+          </div>
+        </div>
+        <!-- Work Item 2 -->
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+          <img src="images/kingship/73.jpg" alt="Healthcare Initiatives" class="w-full">
+          <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+            <h3 class="text-xl font-semibold text-white"></h3>
+          </div>
+        </div>
+        <!-- Work Item 3 -->
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+          <img src="images/Gallery/25.jpg" alt="Environmental Projects" class="w-full">
+          <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+            <h3 class="text-l font-semibold text-white m-5">A Cultural Display By The People Of Awisa</h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+  <!-- footer Card -->
+  <!-- components -->
+  <div class="relative overflow-hidden bg-white pt-6">
+    <!-- Decorative background image and gradient -->
+    <div aria-hidden="true" class="absolute inset-0">
+      <div class="absolute inset-0 mx-auto  overflow-hidden">
+        <img src="images/10th_Anni/for_carosel.jpg" alt="" class="h-full w-full object-cover object-center">
+      </div>
+      <div class="absolute inset-0 bg-white bg-opacity-50"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-white via-white"></div>
+    </div>
+
+    <!-- Callout -->
+    <section aria-labelledby="sale-heading"
+      class="relative mx-auto flex max-w-7xl flex-col items-center px-4 pt-32 text-center sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:max-w-none">
+        <h2 id="sale-heading" class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">Nana Yaw
+          Barima Twum Sarkodie I</h2>
+        <p class="mx-auto mt-4 max-w-xl text-xl text-gray-600">I thank you all for joining me to celebrate the 10th
+          anniversary of my enstoolment as Akwamuhene of this great town Akyem Awisa.</p>
+        <a href="bio.html"
+          class="mt-6 inline-block w-full rounded-md border border-transparent bg-gray-900 px-8 py-3 font-medium text-white hover:bg-cyan-800 sm:w-auto">Learn
+          More </a>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section aria-labelledby="testimonial-heading"
+      class="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32 pt-5">
+      <div class="mx-auto max-w-2xl lg:max-w-none">
+        <h2 id="testimonial-heading" class="text-2xl font-bold tracking-tight text-gray-900"> <span
+            class="text-teal-900">Making The</span><br><span class="text-5xl">Difference</span></h2>
+
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Work Item 1 -->
+          <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+            <img src="images/10th_Anni/13.jpg" alt="Kings1" class="w-full">
+            <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+              <p class="text-wrap m-4 font-semibold text-white">
+                Nana's generous donation of health equipment is a beacon of support,
+                illuminating Akyem Awisa's local hospital with hope and healing. Together,
+                we're shaping a healthier community, one caring act at a time.
+              </p>
+
+            </div>
+          </div>
+          <!-- Work Item 2 -->
+          <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+            <img src="images/10th_Anni/sch/12.jpg" alt="Kings2" class="w-full h-full">
+            <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+              <p class="text-wrap m-4 font-semibold text-white">
+                On the occasion of his 10th anniversary of enstoolment,
+                Nana and his wife generously donated to a local school in Ayem Awisa,
+                showcasing their dedication to nurturing the community and empowering the next generation.
+
+              </p>
+            </div>
+          </div>
+          <!-- Work Item 3 -->
+          <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+            <img src="images/107.jpg" alt="Kings3" class="w-full h-full">
+            <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+              <p class="text-wrap m-4 font-semibold text-white">
+                Organizing a health walk for the entire community and donating health equipment
+                to the local hospital in Akyem Awisa adds vibrancy and support to the town's well-being initiatives.
+
+              </p>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+
+
+  </div>
+  </section>
+  </div>
+
+
+
+
+
+
+
+
+  <!-- FOOTER ------------------------------------------------------------------------------------->
+  <footer class="bg-slate-300 rounded-lg shadow-2xl  m-4">
+    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+      <div class="sm:flex sm:items-center sm:justify-between">
+        <a href="index.html" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+          <img src="/images/sark logo.png" class="h-8" alt="sark Logo" />
+          <span class="self-center text-2xl text-teal-950 font-semibold whitespace-nowrap dark:text-white">THE
+            AKWAMUHENE
+            <br />
+            <span class="text-base text-teal-900 hidden sm:block">OF AKYEM AWISA TRADITIONAL COUNCIL</span></span>
+        </a>
+        <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+          <li>
+            <a href="bio.html" class="hover:underline me-4 md:me-6">Profile</a>
+          </li>
+          <li>
+            <a href="Privacy-Policy.html" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+          </li>
+          <li>
+            <a href="contact.html" class="hover:underline">Appointments</a>
+          </li>
+        </ul>
+      </div>
+      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+      <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="index.html"
+          class="hover:underline">THE AKWAMUHENE</a>. All Rights Reserved.</span>
+    </div>
+  </footer>
+
+
+  <!--End FOOTER ----------------------------------------------------------------------------->
+  <script>
+
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+
+    // Automatic slideshow
+    let autoSlideIndex = 0;
+    autoShowSlides();
+
+    function autoShowSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      autoSlideIndex++;
+      if (autoSlideIndex > slides.length) { autoSlideIndex = 1 }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[autoSlideIndex - 1].style.display = "block";
+      dots[autoSlideIndex - 1].className += " active";
+      setTimeout(autoShowSlides, 2000); // Change image every 2 seconds
+    }
+
+
+
+
+
+    // var slideIndex = 0;
+    // showSlides();
+
+    // function showSlides() {
+    //   var i;
+    //   var slides = document.getElementsByClassName("mySlides");
+    //   var dots = document.getElementsByClassName("dot");
+    //   for (i = 0; i < slides.length; i++) {
+    //     slides[i].style.display = "none";
+    //   }
+    //   slideIndex++;
+    //   if (slideIndex > slides.length) { slideIndex = 1 }
+    //   for (i = 0; i < dots.length; i++) {
+    //     dots[i].className = dots[i].className.replace(" active", "");
+    //   }
+    //   slides[slideIndex - 1].style.display = "block";
+    //   dots[slideIndex - 1].className += " active";
+    //   setTimeout(showSlides, 4000); // Change image every 2 seconds
+    //}
+  </script>
+  <script src="public/js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+  <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
+  <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+  <!-- script -->
+  <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/script-name.js"></script>
+  <script type="text/javascript" src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+</body>
+
+</html>
