@@ -91,11 +91,79 @@
     }
 
     /* On smaller screens, decrease text size */
-    @media only screen and (max-width: 300px) {
+    /* @media only screen and (max-width: 300px) {
       .text {
         font-size: 11px
       }
-    }
+    } */
+
+/* Default styles for large screens (width >= 1200px) */
+@media (min-width: 1200px) {
+  .slideshow-container {
+    height: 700px;
+  }
+  .prev, .next {
+    font-size: 18px;
+    padding: 16px;
+  }
+}
+
+/* Medium screens (width between 992px and 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .slideshow-container {
+    height: 600px;
+  }
+  .prev, .next {
+    font-size: 16px;
+    padding: 14px;
+  }
+}
+
+/* Small screens (width between 768px and 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .slideshow-container {
+    height: 500px;
+  }
+  .prev, .next {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+/* Extra small screens (width < 768px) */
+@media (max-width: 767px) {
+  .slideshow-container {
+    height: 400px;
+  }
+  .prev, .next {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+
+/* Very small screens (width < 576px) */
+@media (max-width: 575px) {
+  .slideshow-container {
+    height: 300px;
+  }
+  .prev, .next {
+    font-size: 10px;
+    padding: 8px;
+  }
+}
+
+/* On smaller screens, decrease text size further */
+@media only screen and (max-width: 300px) {
+  .prev, .next {
+    font-size: 8px;
+    padding: 6px;
+  }
+}
+
+
+
+
+
 
     .prev,
     .next {
@@ -184,38 +252,39 @@
   <!-- Caro-Slider -->
   <div class="slideshow-container ">
 
-    <div class="mySlides fade">
-      <img src="images/Slider/b.jpg" alt="img-1">
+    <div class="mySlides fade  ">
+      <img src="images/Slider/b.jpg" alt="img-1" class="hidden md:block">
     </div>
 
     <div class="mySlides fade">
-      <img src="images/Slider/slider.jpg" alt="img-2">
+      <img src="images/Slider/slider.jpg" alt="img-2" class="hidden md:block">
     </div>
+
+    <div class="mySlides fade">
+      <img src="images/Carosel/for_carosel.jpg" alt="img-3">
+    </div> 
 
     <!-- <div class="mySlides fade">
       <img src="images/Carosel/for_carosel.jpg" alt="img-3">
-    </div>
+    </div> -->
 
-    <div class="mySlides fade">
+    <!-- <div class="mySlides fade">
       <img src="images/Carosel/for_carosel.jpg" alt="img-3">
-    </div>
+    </div> -->
 
-    <div class="mySlides fade">
-      <img src="images/Carosel/for_carosel.jpg" alt="img-3">
-    </div>
-
-    <div class="mySlides fade">
+    <!-- <div class="mySlides fade">
       <img src="images/Carosel/for_carosel.jpg" alt="img-3">
     </div> -->
 
     <!-- Next and previous buttons -->
+     <div class="hidden sm:block" >
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
+  </div>
   </div>
   <br>
 
-  <div style="text-align:center">
+  <div style="text-align:center" class="hidden md:block">
     <span class="dot" onclick="currentSlide(1)"></span>
     <span class="dot" onclick="currentSlide(2)"></span>
     <!-- <span class="dot" onclick="currentSlide(3)"></span> -->
@@ -538,7 +607,7 @@
       }
       slides[autoSlideIndex - 1].style.display = "block";
       dots[autoSlideIndex - 1].className += " active";
-      setTimeout(autoShowSlides, 2000); // Change image every 2 seconds
+      setTimeout(autoShowSlides, 4000); // Change image every 2 seconds
     }
 
 
