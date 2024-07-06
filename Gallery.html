@@ -2,215 +2,215 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gallery</title>
-    <link rel="icon" type="image/png" href="images/sark_logo_1_32x32.png">
-    <link rel="stylesheet" href="public/css/style.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/48336ffa01.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
-    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery</title>
+  <link rel="icon" type="image/png" href="images/sark_logo_1_32x32.png">
+  <link rel="stylesheet" href="public/css/style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/48336ffa01.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+  <script src="https://cdn.tailwindcss.com/3.3.0"></script>
 
-<style>
-  body.modal-open {
-  overflow: hidden; /* Prevent scrolling of the main content */
-}
+  <style>
+    body.modal-open {
+      overflow: hidden;
+      /* Prevent scrolling of the main content */
+    }
 
-  /* Styles for the image grid */
-  #imageGrid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-.fullscreen-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 100;
-}
+    /* Styles for the image grid */
+    #imageGrid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
 
-/* Styles for image containers */
-.image-container {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+    .fullscreen-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 100;
+    }
 
-
-/* Styles for images */
-.image {
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: transform 0.3s ease-in-out;
-}
-
-/* Hover effect for images */
-.image:hover {
-  transform: scale(1.1);
-}
-
-/* Caption styles */
-.image::before {
-  content: attr(data-caption);
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  font-size: 14px;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.image-container:hover .image::before {
-  opacity: 1;
-}
+    /* Styles for image containers */
+    .image-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
 
+    /* Styles for images */
+    .image {
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s ease-in-out;
+    }
 
-/* Styles for the navigation buttons */
-.fullscreen-button,
-.prev-button,
-.next-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: white;
-  font-size: 24px;
-  border: none;
-  border-radius: 50%;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 1;
-}
+    /* Hover effect for images */
+    .image:hover {
+      transform: scale(1.1);
+    }
 
-.prev-button {
-  left: 10px;
-}
+    /* Caption styles */
+    .image::before {
+      content: attr(data-caption);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
 
-.next-button {
-  right: 10px;
-}
-
-.fullscreen-button {
-  top: 20px;
-  right: 20px;
-}
-
-
-/* Media query  */
-@media (max-width: 1200px) {
-  #imageGrid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
-  #imageGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  #imageGrid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* keyboard navigation */
-.fullscreen-button:focus,
-.prev-button:focus,
-.next-button:focus {
-  outline: 2px solid white;
-}
-
-.image-container:focus .image::before {
-  opacity: 1;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+    .image-container:hover .image::before {
+      opacity: 1;
+    }
 
 
 
+    /* Styles for the navigation buttons */
+    .fullscreen-button,
+    .prev-button,
+    .next-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 24px;
+      border: none;
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .prev-button {
+      left: 10px;
+    }
+
+    .next-button {
+      right: 10px;
+    }
+
+    .fullscreen-button {
+      top: 20px;
+      right: 20px;
+    }
 
 
+    /* Media query  */
+    @media (max-width: 1200px) {
+      #imageGrid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
 
-</style>
+    @media (max-width: 900px) {
+      #imageGrid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      #imageGrid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* keyboard navigation */
+    .fullscreen-button:focus,
+    .prev-button:focus,
+    .next-button:focus {
+      outline: 2px solid white;
+    }
+
+    .image-container:focus .image::before {
+      opacity: 1;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 
 
 
 </head>
 
-<body >
-    <!-- Navbar -->
-    <section class="bg-red-200 shadow-lg sticky top-0 z-50">
-      <nav class="bg-white border-gray-200   ">
-          <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="/images/sark logo.png" class="logo h-10 md:h-14" alt="Flowbite Logo" />
+<body>
+  <!-- Navbar -->
+  <section class="bg-red-200 shadow-lg sticky top-0 z-50">
+    <nav class="bg-white border-gray-200   ">
+      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src="/images/sark logo.png" class="logo h-10 md:h-14" alt="Flowbite Logo" />
 
-              <span class="self-center text-2xl text-teal-950 font-semibold whitespace-nowrap dark:text-white">THE AKWAMUHENE
-                  <br />
-                  <span class="text-base text-teal-900 hidden sm:block ">OF AKYEM AWISA TRADITIONAL COUNCIL</span></span>
-          </a>
-          <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-              <!-- <a href="contact.html"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Appointments</button></a> -->
-              <button data-collapse-toggle="navbar-cta" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-cta" aria-expanded="false">
-                <span class="sr-only">Open main menu</span>
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-                </svg>
-            </button>
-          </div>
-          <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
-            <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-              <li>
-                <a href="index.html" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Home</a>
-              </li>
-              <li>
-                <a href="bio.html" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Biography</a>
-              </li>
-              <!-- <li>
+          <span class="self-center text-2xl text-teal-950 font-semibold whitespace-nowrap dark:text-white">THE
+            AKWAMUHENE
+            <br />
+            <span class="text-base text-teal-900 hidden sm:block ">OF AKYEM AWISA TRADITIONAL COUNCIL</span></span>
+        </a>
+        <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <!-- <a href="contact.html"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Appointments</button></a> -->
+          <button data-collapse-toggle="navbar-cta" type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-cta" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15" />
+            </svg>
+          </button>
+        </div>
+        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+          <ul
+            class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <li>
+              <a href="index.html"
+                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Home</a>
+            </li>
+            <li>
+              <a href="bio.html"
+                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Biography</a>
+            </li>
+            <!-- <li>
                 <a href="foundation.html" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 d:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Foundation</a>
               </li> -->
-              <li>
-                <a href="Gallery.html" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500" aria-current="page"dark:hover:bg-transparent dark:border-gray-700">Gallery</a>
-              </li>
-              <li>
-                <a href="contact.html" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Appointments</a>
-              </li>
-            </ul>
-          </div>
-          </div>
-        </nav>
+            <li>
+              <a href="Gallery.html"
+                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
+                aria-current="page" dark:hover:bg-transparent dark:border-gray-700">Gallery</a>
+            </li>
+            <li>
+              <a href="contact.html"
+                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Appointments</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </section>
-<!-- End of Navbar -->
+  <!-- End of Navbar -->
 
-<!-- Text Intro --
-<div class="pt-5">
-  <h2 class="text-left font-bold text-5xl text-teal-700 p-4">Gallery</h2>
-  <p class=""></p>
 
-</div>
-<!--  -->
 
-<div class="bg-[url('images/gala-bg.jpg')] bg-cover bg-center py-16">
-  <div class="text-start m-7 p-5">
-    <span class="bg-secondary text-secondary-foreground px-4 py-2 rounded">EVENTS</span>
-    <h1 class="text-4xl font-bold mt-4 text-teal-700">Gallery</h1>
+  <div class="bg-[url('images/gala-bg.jpg')] bg-cover bg-center py-16">
+    <div class="text-start m-7 p-5">
+      <!-- <span class="bg-secondary text-secondary-foreground px-4 py-2 rounded">EVENTS</span> -->
+      <h1 class="text-5xl font-bold mt-4 text-teal-700">Gallery</h1>
+    </div>
   </div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
+  <!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4"> -->
 
   <!-- not added  -->
-  <div class="relative group">
+  <!-- <div class="relative group gallery">
     <a href="10th_anni.html">
       <img src="images/Carosel/e.jpg" alt="Asantehene Celebrates The 2nd Akwasidae Of The Year 2023" class="w-full h-full object-cover rounded-lg" />
     </a>
@@ -222,11 +222,11 @@ html {
     <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-75 text-white p-2 text-center transition-transform duration-300 ease-out transform translate-y-full group-hover:translate-y-0 rounded-b-lg">
       <a href="10th_anni.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white py-1 px-4 rounded-lg">View</a>
     </div>
-  </div>
-  
-  
- 
-  <div class="relative">
+  </div> -->
+
+
+
+  <!-- <div class="relative">
     <a href="church.html">
       <img src="images/Church/DSC_0079.JPG" alt="Asantehene Celebrates The 2nd Akwasidae Of The Year 2023" class="w-full h-full object-cover rounded-lg" />
     </a>
@@ -242,11 +242,11 @@ html {
     </a>
     
     <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">Asantehene's Vals Gift To Lady Julia Delivered</div>
-  </div>
-  
+  </div> -->
 
 
-  <div class="relative">
+
+  <!-- <div class="relative">
     <a href="#">
       <img src="images/New folder/DSC_0405.JPG" alt="Otumfuo Osei Tutu II commissioned, cut sod, unveiled, and inspected some projects at KNUST" class="w-full h-full object-cover rounded-lg" />
     </a>
@@ -260,10 +260,10 @@ html {
     </a>
     
     <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">Otumfuo Confers PhD Degrees On 124 KNUST Students</div>
-  </div>
+  </div> -->
 
 
-  <div class="relative">
+  <!-- <div class="relative">
     <a href="healthwalk.html">
       <img src="images/Health Walk/DSC_0544.JPG" alt="Otumfuo Confers PhD Degrees On 124 KNUST Students" class="w-full h-full object-cover rounded-lg" />
     </a>
@@ -277,22 +277,221 @@ html {
     </a>
     
     <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">Otumfuo Confers PhD Degrees On 124 KNUST Students</div>
-  </div>
+  </div> -->
 
-  <div class="relative">
+  <!-- <div class="relative">
     <a href="nightjam.html">
       <img src="images/Night Jam/DSC_0621.JPG " alt="Otumfuo Confers PhD Degrees On 124 KNUST Students" class="w-full h-full object-cover rounded-lg" />
     </a>
     
     <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">Otumfuo Confers PhD Degrees On 124 KNUST Students</div>
+  </div> -->
+
   </div>
 
-</div>
+
+  <!-- NOT ADDED YET -->
+  <section class="bg-gray-200 py-5 mb-3">
+    <div class="container mx-auto">
+      <h2 class="section-title text-3xl font-bold mb-8 text-center">EVENTS</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Work Item 1 -->
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+          <img src="images/10th Annie/167.JPG" alt="Education Programs" class="w-full">
+          <a href="10th_anni.html">
+            <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+              <h3 class="font-semibold text-white m-4"> 
+                <i class="fa-solid fa-magnifying-glass"></i>
+                View More </h3>
+            </div>
+          </a>
+        </div>
+        <!-- Work Item 2 -->
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+          <img src="images/Church/DSC_0079.JPG" alt="Healthcare Initiatives" class="w-full">
+          <a href="church.html">
+            <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+              <h3 class=" font-semibold text-white"><i class="fa-solid fa-magnifying-glass"></i>
+                View More</h3>
+            </div>
+          </a>
+        </div>
+        <!-- Work Item 3 -->
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+          <img src="images/Health Checkup/DSC_0478.JPG" alt="Environmental Projects" class="w-full">
+          <a href="health.html">
+            <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+              <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
+                View More</h3>
+            </div>
+          </a>
+        </div>
+
+        <!-- Work Item 4 -->
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+          <img src="images/Football/DSC_0171.JPG" alt="Environmental Projects" class="w-full">
+          <a href="sports.html">
+            <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+              <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
+                View More</h3>
+            </div>
+          </a>
+        </div>
+
+        <!-- Work Item 5 -->
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+          <img src="images/Health Walk/DSC_0544.JPG" alt="Environmental Projects" class="w-full">
+          <a href="healthwalk.html">
+            <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+              <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
+                View More</h3>
+            </div>
+          </a>
+        </div>
+
+        <!-- Work Item 6 -->
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+          <img src="images/Night Jam/DSC_0621.JPG " alt="Environmental Projects" class="w-full">
+          <a href="nightjam.html">
+            <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+              <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
+                View More</h3>
+            </div>
+          </a>
+        </div>
+
+        <!-- Work Item 7 -->
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+          <img src="images/ThanksGivingParty/DSC_0969.JPG" alt="Environmental Projects" class="w-full">
+          <a href="thanksgiving.html">
+            <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+              <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
+                View More</h3>
+            </div>
+          </a>
+        </div>
+
+        <!-- Work Item 8 -->
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+          <img src="images/Cleaning of the town/DSC_0398.JPG" alt="Environmental Projects" class="w-full">
+          <a href="cleanup.html">
+            <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+              <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
+                View More</h3>
+            </div>
+          </a>
+        </div>
+
+        <!-- Work Item 9 -->
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+          <img src="images/Health Donations/DSC_0493.JPG" alt="Environmental Projects" class="w-full">
+          <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+            <a href="donation.html">
+              <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
+                View More</h3>
+            </a>
+          </div>
+        </div>
+
+        <!-- Work Item 10 -->
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+          <img src="images/" alt="Environmental Projects" class="w-full">
+          <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+            <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
+              View More</h3>
+          </div>
+        </div>
+
+        <!-- Work Item 11 -->
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+          <img src="images/" alt="Environmental Projects" class="w-full">
+          <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+            <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
+              View More</h3>
+          </div>
+        </div>
+
+        <!-- Work Item 12 -->
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+          <a href="">
+            <img src="images/" alt="Environmental Projects" class="w-full">
+          </a>
+          <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+            <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
+              View More</h3>
+          </div>
+        </div>
+
+        <!-- Work Item 13 -->
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+          <img src="images/" alt="Environmental Projects" class="w-full">
+          <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+            <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
+              View More</h3>
+          </div>
+        </div>
+
+        <!-- Work Item 14 -->
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+          <img src="images/" alt="Environmental Projects" class="w-full">
+          <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+            <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
+              View More</h3>
+          </div>
+        </div>
+
+        <!-- Work Item 15 -->
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+          <img src="images/" alt="Environmental Projects" class="w-full">
+          <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+            <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
+              View More</h3>
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+    </div>
+  </section>
+
+
+  <!-- NOT ADDED -->
+  <!-- <div class="gallery">
+  <div class="gallery-item">
+      <img src="images/10th Annie/Tall/DSC_0716.JPG" alt="Akwasidae Celebration" class="rounded-lg">
+      <div class="overlay rounded-lg">
+          <div class="text">Asantehene Celebrates The 2nd Akwasidae Of The Year 2023</div>
+          <div class="view-button">View</div>
+      </div>
+  </div>
+  <div class="gallery-item">
+      <img src="images/10th Annie/Tall/DSC_0716.JPG" alt="Val Gift" class="rounded-lg">
+      <div class="overlay rounded-lg">
+          <div class="text">Asantehene's Vals Gift To Lady Julia Delivered</div>
+      </div>
+  </div>
+  <div class="gallery-item">
+      <img src="https://via.placeholder.com/600x400" alt="KNUST Projects" class="rounded-lg">
+      <div class="overlay rounded-lg">
+          <div class="text">Otumfuo Osei Tutu II commissioned, cut sod, unveiled, and inspected some projects at KNUST</div>
+      </div>
+  </div>
+</div> -->
 
 
 
 
-<!-- The Images --
+
+
+
+
+
+
+
+  <!-- The Images --
 <div class="grid grid-cols-4 gap-4 lg:gap-6 pt-8" id="imageGrid">
   <div class="image-container">
     <img src="images/kingship/19.jpg" data-caption="Image caption 1" alt="View of the City in the Mountains" class="image cursor-zoom-in" />
@@ -544,52 +743,54 @@ html {
 <!-- FOOTER ------------------------------------------------------------------------------------->
 
 
-<footer class="bg-slate-300 border-gray-200 dark:bg-gray-900 m-4 rounded-lg">
-  <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+  <footer class="bg-slate-300 border-gray-200 dark:bg-gray-900 m-4 rounded-lg">
+    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
       <div class="sm:flex sm:items-center sm:justify-between">
-          <a href="index.html" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-              <img src="/images/sark logo.png" class="h-8" alt="sark Logo" />
-              <span class="self-center text-2xl text-teal-950 font-semibold whitespace-nowrap dark:text-white">THE AKWAMUHENE
-                  <br />
-                  <span class="text-base text-teal-900 hidden sm:block">OF AKYEM AWISA TRADITIONAL COUNCIL</span></span>
-          </a>
-          <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
-              <li>
-                  <a href="bio.html" class="hover:underline me-4 md:me-6">Profile</a>
-              </li>
-              <li>
-                  <a href="Privacy-Policy.html" class="hover:underline me-4 md:me-6">Privacy Policy</a>
-              </li>
-              <li>
-                  <a href="contact.html" class="hover:underline">Appointment</a>
-              </li>
-          </ul>
+        <a href="index.html" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+          <img src="/images/sark logo.png" class="h-8" alt="sark Logo" />
+          <span class="self-center text-2xl text-teal-950 font-semibold whitespace-nowrap dark:text-white">THE
+            AKWAMUHENE
+            <br />
+            <span class="text-base text-teal-900 hidden sm:block">OF AKYEM AWISA TRADITIONAL COUNCIL</span></span>
+        </a>
+        <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+          <li>
+            <a href="bio.html" class="hover:underline me-4 md:me-6">Profile</a>
+          </li>
+          <li>
+            <a href="Privacy-Policy.html" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+          </li>
+          <li>
+            <a href="contact.html" class="hover:underline">Appointment</a>
+          </li>
+        </ul>
       </div>
       <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="index.html" class="hover:underline">THE AKWAMUHENE</a>. All Rights Reserved.</span>
-  </div>
-</footer>
+      <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="index.html"
+          class="hover:underline">THE AKWAMUHENE</a>. All Rights Reserved.</span>
+    </div>
+  </footer>
 
-<!--SCRIPT -->
- <script>
-document.addEventListener("DOMContentLoaded", function() {
-    // Get all the images with the class 'cursor-zoom-in'
-    const images = document.querySelectorAll('.cursor-zoom-in');
-    let currentImageIndex = 0; // Keep track of the currently displayed image index
+  <!--SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Get all the images with the class 'cursor-zoom-in'
+      const images = document.querySelectorAll('.cursor-zoom-in');
+      let currentImageIndex = 0; // Keep track of the currently displayed image index
 
-    // Function to create the modal with image and controls
-    function createModal(imageSrc, imageAlt) {
+      // Function to create the modal with image and controls
+      function createModal(imageSrc, imageAlt) {
         // Create a modal container
         const modal = document.createElement('div');
         modal.classList.add('fixed', 'top-0', 'left-0', 'h-full', 'w-full', 'bg-black', 'bg-opacity-80', 'flex', 'items-center', 'justify-center', 'z-50');
-        
+
         // Disable scroll
         document.body.classList.add('modal-open');
 
         // Create an image element for the zoomed-in image
         const zoomedImage = document.createElement('img');
         zoomedImage.src = imageSrc;
-        zoomedImage.alt = imageAlt; 
+        zoomedImage.alt = imageAlt;
         zoomedImage.classList.add('max-h-full', 'max-w-full');
 
         // Create buttons for navigation and full screen
@@ -597,35 +798,35 @@ document.addEventListener("DOMContentLoaded", function() {
         backButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
         backButton.classList.add('prev-button');
         backButton.addEventListener('click', () => {
-            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-            updateImage();
+          currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+          updateImage();
         });
 
         const forwardButton = document.createElement('button');
         forwardButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
         forwardButton.classList.add('next-button');
         forwardButton.addEventListener('click', () => {
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            updateImage();
+          currentImageIndex = (currentImageIndex + 1) % images.length;
+          updateImage();
         });
 
         const fullScreenButton = document.createElement('button');
         fullScreenButton.innerHTML = '<i class="fas fa-expand"></i>';
         fullScreenButton.classList.add('fullscreen-button');
         fullScreenButton.addEventListener('click', () => {
-            if (modal.requestFullscreen) {
-                modal.requestFullscreen();
-            } else if (modal.webkitRequestFullscreen) { /* Safari */
-                modal.webkitRequestFullscreen();
-            } else if (modal.msRequestFullscreen) { /* IE11 */
-                modal.msRequestFullscreen();
-            }
+          if (modal.requestFullscreen) {
+            modal.requestFullscreen();
+          } else if (modal.webkitRequestFullscreen) { /* Safari */
+            modal.webkitRequestFullscreen();
+          } else if (modal.msRequestFullscreen) { /* IE11 */
+            modal.msRequestFullscreen();
+          }
         });
 
         // Function to update the image displayed in the modal
         function updateImage() {
-            zoomedImage.src = images[currentImageIndex].src;
-            zoomedImage.alt = images[currentImageIndex].alt;
+          zoomedImage.src = images[currentImageIndex].src;
+          zoomedImage.alt = images[currentImageIndex].alt;
         }
 
         // Append elements to the modal
@@ -635,34 +836,34 @@ document.addEventListener("DOMContentLoaded", function() {
         modal.appendChild(forwardButton);
 
         // Add click event listener to close the modal when clicked outside the image
-        modal.addEventListener('click', function(event) {
-            if (event.target === this) {
-                this.remove();
-                document.body.classList.remove('modal-open');
-            }
+        modal.addEventListener('click', function (event) {
+          if (event.target === this) {
+            this.remove();
+            document.body.classList.remove('modal-open');
+          }
         });
 
         // Append the modal to the body
         document.body.appendChild(modal);
-    }
+      }
 
-    // Add click event listener to each image
-    images.forEach((image, index) => {
-        image.addEventListener('click', function() {
-            currentImageIndex = index;
-            createModal(this.src, this.alt);
+      // Add click event listener to each image
+      images.forEach((image, index) => {
+        image.addEventListener('click', function () {
+          currentImageIndex = index;
+          createModal(this.src, this.alt);
         });
+      });
     });
-});
 
 
 
-</script>
+  </script>
 
-    <script src="public/js/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com --> 
-<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+  <script src="public/js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+  <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
+  <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
 </body>
 
 </html>

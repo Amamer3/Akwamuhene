@@ -41,9 +41,51 @@ body{
 }
   
 
-/* --------------------------------------------------------------------- /*
-/*                   carsel starts                                       /*
-/* --------------------------------------------------------------------- /*
+
+/* In addition */
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  flex: 1;
+  max-width: 33%;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  box-shadow: inset 0 -10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+
+.text {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.view-button {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #ffffff;
+  color: #000;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 
 
