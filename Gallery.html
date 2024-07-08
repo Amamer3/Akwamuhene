@@ -10,6 +10,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/48336ffa01.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com/3.3.0"></script>
 
   <style>
@@ -296,7 +297,7 @@
       <h2 class="section-title text-3xl font-bold mb-8 text-center">EVENTS</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Work Item 1 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-right" >
           <img src="images/10th Annie/167.JPG" alt="Education Programs" class="w-full">
           <a href="10th_anni.html">
             <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
@@ -307,7 +308,7 @@
           </a>
         </div>
         <!-- Work Item 2 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-down">
           <img src="images/Church/DSC_0079.JPG" alt="Healthcare Initiatives" class="w-full">
           <a href="church.html">
             <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
@@ -317,7 +318,7 @@
           </a>
         </div>
         <!-- Work Item 3 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-left">
           <img src="images/Health Checkup/DSC_0478.JPG" alt="Environmental Projects" class="w-full">
           <a href="health.html">
             <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
@@ -328,7 +329,7 @@
         </div>
 
         <!-- Work Item 4 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-right">
           <img src="images/Football/DSC_0171.JPG" alt="Environmental Projects" class="w-full">
           <a href="sports.html">
             <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
@@ -339,7 +340,7 @@
         </div>
 
         <!-- Work Item 5 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="zoom-in">
           <img src="images/Health Walk/DSC_0544.JPG" alt="Environmental Projects" class="w-full">
           <a href="healthwalk.html">
             <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
@@ -350,7 +351,7 @@
         </div>
 
         <!-- Work Item 6 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-left">
           <img src="images/Night Jam/DSC_0621.JPG " alt="Environmental Projects" class="w-full">
           <a href="nightjam.html">
             <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
@@ -361,7 +362,7 @@
         </div>
 
         <!-- Work Item 7 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-right">
           <img src="images/ThanksGivingParty/DSC_0969.JPG" alt="Environmental Projects" class="w-full">
           <a href="thanksgiving.html">
             <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
@@ -372,7 +373,7 @@
         </div>
 
         <!-- Work Item 8 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-up">
           <img src="images/Cleaning of the town/DSC_0398.JPG" alt="Environmental Projects" class="w-full">
           <a href="cleanup.html">
             <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
@@ -383,7 +384,7 @@
         </div>
 
         <!-- Work Item 9 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
+        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-left">
           <img src="images/Health Donations/DSC_0493.JPG" alt="Environmental Projects" class="w-full">
           <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
             <a href="donation.html">
@@ -864,6 +865,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
   <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
   <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+        duration: 2000,
+        once: false,
+    });
+</script>
 </body>
 
 </html>
