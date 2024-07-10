@@ -92,22 +92,10 @@
       z-index: 1;
     }
 
-    .prev-button {
-      left: 10px;
-    }
-
-    .next-button {
-      right: 10px;
-    }
-
-    .fullscreen-button {
-      top: 20px;
-      right: 20px;
-    }
 
 
     /* Media query  */
-    @media (max-width: 1200px) {
+    /* @media (max-width: 1200px) {
       #imageGrid {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -123,10 +111,10 @@
       #imageGrid {
         grid-template-columns: 1fr;
       }
-    }
+    } */
 
     /* keyboard navigation */
-    .fullscreen-button:focus,
+    /* .fullscreen-button:focus,
     .prev-button:focus,
     .next-button:focus {
       outline: 2px solid white;
@@ -134,10 +122,87 @@
 
     .image-container:focus .image::before {
       opacity: 1;
-    }
+    } */
 
     html {
       scroll-behavior: smooth;
+    }
+
+
+    /* not added yet */
+    /* small access small accessories .header {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      align-content: flex-start;
+      height: 50vw;
+      min-height: 400px;
+      max-height: 550px;
+      min-width: 300px;
+      color: #eee;
+    } */
+
+    .header:after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.12) 40%, rgba(27, 32, 48, 1) 100%);
+    }
+
+    .header:before {
+      content: "";
+      width: 100%;
+      height: 200%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      -webkit-backface-visibility: hidden;
+      -webkit-transform: translateZ(0);
+      backface-visibility: hidden;
+      transform: translateZ(0);
+      background: #1B2030 url('/images/pexels-rpnickson-2559941.jpg') 50% 0 no-repeat;
+      background-size: 100%;
+      background-attachment: fixed;
+      background-size: cover;
+      animation: grow 360s linear 10ms infinite;
+      transition: all 0.4s ease-in-out;
+      z-index: -2
+    }
+
+    .info {
+      width: 100%;
+      padding: 15% 10% 0 10%;
+      text-align: left;
+
+      text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2)
+    }
+
+    /* .author {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: url(https://i.imgur.com/6DLCsZcb.jpg) center no-repeat;
+      background-size: cover;
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+      margin-bottom: 3px
+    } */
+
+    @keyframes grow {
+      0% {
+        transform: scale(1) translateY(0px)
+      }
+
+      50% {
+        transform: scale(1.2) translateY(-400px)
+      }
     }
   </style>
 
@@ -202,91 +267,23 @@
 
 
 
-  <div class="bg-[url('images/gala-bg.jpg')] bg-cover bg-center py-16">
-    <div class="text-start m-7 p-5">
-      <!-- <span class="bg-secondary text-secondary-foreground px-4 py-2 rounded">EVENTS</span> -->
-      <h1 class="text-5xl font-bold mt-4 text-teal-700">Gallery</h1>
+  <!-- Header Display -->
+  <div class="header">
+    <div class="info  ">
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <span class="text-teal-800 text-6xl font-semibold " data-aos="zoom-in-up">Gallery</span>
+      <div class="meta">
+        <br>
+        <br>
+        <div></div>
+        <span class="font-light text-white text-start "> <i></i></span>
+      </div>
     </div>
-  </div>
-  <!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4"> -->
 
-  <!-- not added  -->
-  <!-- <div class="relative group gallery">
-    <a href="10th_anni.html">
-      <img src="images/Carosel/e.jpg" alt="Asantehene Celebrates The 2nd Akwasidae Of The Year 2023" class="w-full h-full object-cover rounded-lg" />
-    </a>
-  
-    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg transition-all duration-300 ease-out">
-      10th Anniversary of Nana Yaw Barima Twum Sarkodie I
-    </div>
-  
-    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-75 text-white p-2 text-center transition-transform duration-300 ease-out transform translate-y-full group-hover:translate-y-0 rounded-b-lg">
-      <a href="10th_anni.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white py-1 px-4 rounded-lg">View</a>
-    </div>
-  </div> -->
-
-
-
-  <!-- <div class="relative">
-    <a href="church.html">
-      <img src="images/Church/DSC_0079.JPG" alt="Asantehene Celebrates The 2nd Akwasidae Of The Year 2023" class="w-full h-full object-cover rounded-lg" />
-    </a>
-    
-    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">Asantehene Celebrates The 2nd Akwasidae Of The Year 2023</div>
-  </div>
-  
-
-
-  <div class="relative">
-    <a href="health.html">
-      <img src="images/Health Checkup/DSC_0478.JPG" alt="Asantehene's Vals Gift To Lady Julia Delivered" class="w-full h-full object-cover rounded-lg" />
-    </a>
-    
-    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">Asantehene's Vals Gift To Lady Julia Delivered</div>
-  </div> -->
-
-
-
-  <!-- <div class="relative">
-    <a href="#">
-      <img src="images/New folder/DSC_0405.JPG" alt="Otumfuo Osei Tutu II commissioned, cut sod, unveiled, and inspected some projects at KNUST" class="w-full h-full object-cover rounded-lg" />
-    </a>
-    
-    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">Otumfuo Osei Tutu II commissioned, cut sod, unveiled, and inspected some projects at KNUST</div>
-  </div>
-
-  <div class="relative">
-    <a href="thanksgiving.html">
-      <img src="images/ThanksGivingParty/DSC_0969.JPG" alt="Otumfuo Confers PhD Degrees On 124 KNUST Students" class="w-full h-full object-cover rounded-lg" />
-    </a>
-    
-    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">Otumfuo Confers PhD Degrees On 124 KNUST Students</div>
-  </div> -->
-
-
-  <!-- <div class="relative">
-    <a href="healthwalk.html">
-      <img src="images/Health Walk/DSC_0544.JPG" alt="Otumfuo Confers PhD Degrees On 124 KNUST Students" class="w-full h-full object-cover rounded-lg" />
-    </a>
-    
-    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">Otumfuo Confers PhD Degrees On 124 KNUST Students</div>
-  </div>
-
-  <div class="relative">
-    <a href="sports.html">
-      <img src="images/Football/DSC_0171.JPG" alt="Otumfuo Confers PhD Degrees On 124 KNUST Students" class="w-full h-full object-cover rounded-lg" />
-    </a>
-    
-    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">Otumfuo Confers PhD Degrees On 124 KNUST Students</div>
-  </div> -->
-
-  <!-- <div class="relative">
-    <a href="nightjam.html">
-      <img src="images/Night Jam/DSC_0621.JPG " alt="Otumfuo Confers PhD Degrees On 124 KNUST Students" class="w-full h-full object-cover rounded-lg" />
-    </a>
-    
-    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">Otumfuo Confers PhD Degrees On 124 KNUST Students</div>
-  </div> -->
 
   </div>
 
@@ -294,161 +291,178 @@
   <!-- NOT ADDED YET -->
   <section class="bg-gray-200 py-5 mb-3">
     <div class="container mx-auto">
-      <h2 class="section-title text-3xl font-bold mb-8 text-center">EVENTS</h2>
+      <h2 class="section-title text-3xl font-bold mb-8 text-center text-teal-700">EVENTS</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+
         <!-- Work Item 1 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-right" >
-          <img src="images/10th Annie/167.JPG" alt="Education Programs" class="w-full">
-          <a href="10th_anni.html">
+        <a href="10th_anni.html">
+          <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-right">
+            <img src="images/10th Annie/167.JPG" alt="Education Programs" class="w-full">
             <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
-              <h3 class="font-semibold text-white m-4"> 
+              <h3 class="font-semibold text-white m-4">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                View More </h3>
+                View More
+              </h3>
             </div>
-          </a>
-        </div>
+          </div>
+        </a>
+
+
         <!-- Work Item 2 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-down">
-          <img src="images/Church/DSC_0079.JPG" alt="Healthcare Initiatives" class="w-full">
-          <a href="church.html">
+        <a href="church.html">
+          <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-down">
+            <img src="images/Church/DSC_0079.JPG" alt="Healthcare Initiatives" class="w-full">
             <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
               <h3 class=" font-semibold text-white"><i class="fa-solid fa-magnifying-glass"></i>
                 View More</h3>
             </div>
-          </a>
-        </div>
+          </div>
+        </a>
+
+
         <!-- Work Item 3 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-left">
-          <img src="images/Health Checkup/DSC_0478.JPG" alt="Environmental Projects" class="w-full">
-          <a href="health.html">
+        <a href="health.html">
+          <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-left">
+            <img src="images/Health Checkup/DSC_0478.JPG" alt="Environmental Projects" class="w-full">
             <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
               <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
                 View More</h3>
             </div>
-          </a>
-        </div>
+          </div>
+        </a>
 
         <!-- Work Item 4 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-right">
-          <img src="images/Football/DSC_0171.JPG" alt="Environmental Projects" class="w-full">
-          <a href="sports.html">
+        <a href="sports.html">
+          <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-right">
+            <img src="images/Football/DSC_0171.JPG" alt="Environmental Projects" class="w-full">
             <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
               <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
                 View More</h3>
             </div>
-          </a>
-        </div>
+          </div>
+        </a>
 
         <!-- Work Item 5 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="zoom-in">
-          <img src="images/Health Walk/DSC_0544.JPG" alt="Environmental Projects" class="w-full">
-          <a href="healthwalk.html">
+        <a href="healthwalk.html">
+          <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="zoom-in">
+            <img src="images/Health Walk/DSC_0544.JPG" alt="Environmental Projects" class="w-full">
             <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
               <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
                 View More</h3>
             </div>
-          </a>
-        </div>
+          </div>
+        </a>
 
         <!-- Work Item 6 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-left">
-          <img src="images/Night Jam/DSC_0621.JPG " alt="Environmental Projects" class="w-full">
-          <a href="nightjam.html">
+        <a href="nightjam.html">
+          <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-left">
+            <img src="images/Night Jam/DSC_0621.JPG " alt="Environmental Projects" class="w-full">
             <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
               <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
                 View More</h3>
             </div>
-          </a>
-        </div>
+          </div>
+        </a>
 
         <!-- Work Item 7 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-right">
-          <img src="images/ThanksGivingParty/DSC_0969.JPG" alt="Environmental Projects" class="w-full">
-          <a href="thanksgiving.html">
+        <a href="thanksgiving.html">
+          <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-right">
+            <img src="images/ThanksGivingParty/DSC_0969.JPG" alt="Environmental Projects" class="w-full">
             <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
               <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
                 View More</h3>
             </div>
-          </a>
-        </div>
+          </div>
+        </a>
 
         <!-- Work Item 8 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-up">
-          <img src="images/Cleaning of the town/DSC_0398.JPG" alt="Environmental Projects" class="w-full">
-          <a href="cleanup.html">
+        <a href="cleanup.html">
+          <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-up">
+            <img src="images/Cleaning of the town/DSC_0398.JPG" alt="Environmental Projects" class="w-full">
             <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
               <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
                 View More</h3>
             </div>
-          </a>
-        </div>
+          </div>
+        </a>
 
         <!-- Work Item 9 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-left">
-          <img src="images/Health Donations/DSC_0493.JPG" alt="Environmental Projects" class="w-full">
-          <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
-            <a href="donation.html">
+        <a href="donation.html">
+          <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-left">
+            <img src="images/Health Donations/DSC_0493.JPG" alt="Environmental Projects" class="w-full">
+            <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
               <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
                 View More</h3>
-            </a>
+            </div>
           </div>
-        </div>
+        </a>
 
         <!-- Work Item 10 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
-          <img src="images/" alt="Environmental Projects" class="w-full">
-          <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
-            <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
-              View More</h3>
+        <a href="yaanaa.html">
+          <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-right">
+            <img src="images/Yaanaa/DSC_012.jpg" alt="Environmental Projects" class="w-full">
+            <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+              <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
+                View More</h3>
+            </div>
           </div>
-        </div>
 
-        <!-- Work Item 11 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
-          <img src="images/" alt="Environmental Projects" class="w-full">
-          <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
-            <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
-              View More</h3>
-          </div>
-        </div>
-
-        <!-- Work Item 12 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
-          <a href="">
-            <img src="images/" alt="Environmental Projects" class="w-full">
+          <!-- Work Item 11 -->
+          <a href="sch.html">
+            <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-up">
+              <img src="images/Sch/newone2.jpg" alt="Environmental Projects" class="w-full">
+              <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+                <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
+                  View More</h3>
+              </div>
+            </div>
           </a>
-          <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
-            <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
-              View More</h3>
-          </div>
-        </div>
 
-        <!-- Work Item 13 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
-          <img src="images/" alt="Environmental Projects" class="w-full">
-          <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
-            <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
-              View More</h3>
-          </div>
-        </div>
+          <!-- Work Item 12 -->
+          <a href="asaman.html">
+            <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-left">
+              <img src="images/ASAMAN KING/main1.jpg" alt="Environmental Projects" class="w-full">
+              <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+                <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
+                  View More</h3>
+              </div>
+            </div>
+          </a>
 
-        <!-- Work Item 14 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
-          <img src="images/" alt="Environmental Projects" class="w-full">
-          <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
-            <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
-              View More</h3>
-          </div>
-        </div>
 
-        <!-- Work Item 15 -->
-        <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden">
-          <img src="images/" alt="Environmental Projects" class="w-full">
-          <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
-            <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
-              View More</h3>
-          </div>
-        </div>
+          <!-- Work Item 13 -->
+          <a href="random.html">
+            <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-right">
+              <img src="images/Random/4.jpg" alt="Environmental Projects" class="w-full">
+              <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+                <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
+                  View More</h3>
+              </div>
+            </div>
+          </a>
+
+          <!-- Work Item 14 -->
+          <a href="#">
+            <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-up">
+              <img src="images/At the Kings Gath/main1.jpg" alt="Environmental Projects" class="w-full">
+              <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+                <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
+                  View More</h3>
+              </div>
+            </div>
+          </a>
+
+          <!-- Work Item 15 -->
+          <a href="#">
+            <div class="bg-white rounded-lg shadow-lg work-item relative overflow-hidden" data-aos="fade-left">
+              <img src="images/1's/main.jpg" alt="Environmental Projects" class="w-full">
+              <div class="work-item-overlay absolute inset-0 flex items-center justify-center">
+                <h3 class="text-l font-semibold text-white m-5"><i class="fa-solid fa-magnifying-glass"></i>
+                  View More</h3>
+              </div>
+            </div>
+          </a>
 
 
 
@@ -868,10 +882,10 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({
-        duration: 2000,
-        once: false,
+      duration: 2000,
+      once: false,
     });
-</script>
+  </script>
 </body>
 
 </html>
