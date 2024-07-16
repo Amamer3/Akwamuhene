@@ -97,68 +97,80 @@
       }
     } */
 
-/* Default styles for large screens (width >= 1200px) */
-@media (min-width: 1200px) {
-  .slideshow-container {
-    height: 700px;
-  }
-  .prev, .next {
-    font-size: 18px;
-    padding: 16px;
-  }
-}
+    /* Default styles for large screens (width >= 1200px) */
+    @media (min-width: 1200px) {
+      .slideshow-container {
+        height: 700px;
+      }
 
-/* Medium screens (width between 992px and 1199px) */
-@media (min-width: 992px) and (max-width: 1199px) {
-  .slideshow-container {
-    height: 600px;
-  }
-  .prev, .next {
-    font-size: 16px;
-    padding: 14px;
-  }
-}
+      .prev,
+      .next {
+        font-size: 18px;
+        padding: 16px;
+      }
+    }
 
-/* Small screens (width between 768px and 991px) */
-@media (min-width: 768px) and (max-width: 991px) {
-  .slideshow-container {
-    height: 500px;
-  }
-  .prev, .next {
-    font-size: 14px;
-    padding: 12px;
-  }
-}
+    /* Medium screens (width between 992px and 1199px) */
+    @media (min-width: 992px) and (max-width: 1199px) {
+      .slideshow-container {
+        height: 600px;
+      }
 
-/* Extra small screens (width < 768px) */
-@media (max-width: 767px) {
-  .slideshow-container {
-    height: 400px;
-  }
-  .prev, .next {
-    font-size: 12px;
-    padding: 10px;
-  }
-}
+      .prev,
+      .next {
+        font-size: 16px;
+        padding: 14px;
+      }
+    }
 
-/* Very small screens (width < 576px) */
-@media (max-width: 575px) {
-  .slideshow-container {
-    height: 300px;
-  }
-  .prev, .next {
-    font-size: 10px;
-    padding: 8px;
-  }
-}
+    /* Small screens (width between 768px and 991px) */
+    @media (min-width: 768px) and (max-width: 991px) {
+      .slideshow-container {
+        height: 500px;
+      }
 
-/* On smaller screens, decrease text size further */
-@media only screen and (max-width: 300px) {
-  .prev, .next {
-    font-size: 8px;
-    padding: 6px;
-  }
-}
+      .prev,
+      .next {
+        font-size: 14px;
+        padding: 12px;
+      }
+    }
+
+    /* Extra small screens (width < 768px) */
+    @media (max-width: 767px) {
+      .slideshow-container {
+        height: 400px;
+      }
+
+      .prev,
+      .next {
+        font-size: 12px;
+        padding: 10px;
+      }
+    }
+
+    /* Very small screens (width < 576px) */
+    @media (max-width: 575px) {
+      .slideshow-container {
+        height: 300px;
+      }
+
+      .prev,
+      .next {
+        font-size: 10px;
+        padding: 8px;
+      }
+    }
+
+    /* On smaller screens, decrease text size further */
+    @media only screen and (max-width: 300px) {
+
+      .prev,
+      .next {
+        font-size: 8px;
+        padding: 6px;
+      }
+    }
 
 
 
@@ -262,7 +274,7 @@
 
     <div class="mySlides fade">
       <img src="images/Carosel/for_carosel.jpg" alt="img-3">
-    </div> 
+    </div>
 
     <!-- <div class="mySlides fade">
       <img src="images/Carosel/for_carosel.jpg" alt="img-3">
@@ -277,10 +289,10 @@
     </div> -->
 
     <!-- Next and previous buttons -->
-     <div class="hidden sm:block">
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  </div>
+    <div class="hidden sm:block">
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
   </div>
   <br>
 
@@ -300,9 +312,9 @@
 
   <!-- Two Horizontal Lines -->
   <div class=" p-8 text-center">
-    <div class="flex justify-center items-center mb-4"  >
+    <div class="flex justify-center items-center mb-4">
       <div class="border-t border-zinc-400 flex-grow" data-aos="fade-right"></div>
-      <img src="images/sark_logo_200x200-removebg-preview.png" alt="Palace Logo" class="mx-4" data-aos="zoom-in"/>
+      <img src="images/sark_logo_200x200-removebg-preview.png" alt="Palace Logo" class="mx-4" data-aos="zoom-in" />
       <div class="border-t border-zinc-400 flex-grow" data-aos="zoom-in-left"></div>
     </div>
     <h3 class="text-center font-medium text-2xl" data-aos="zoom-in">NANA YAW BARIMA TWUM SARKODIE I <br> <span
@@ -331,16 +343,18 @@
         <div class="grid items-center py-12 px-2 lg:ml-6 lg:py-20">
 
           <h3
-            class="block antialiased tracking-normal font-sans font-semibold leading-snug text-blue-gray-900 mb-4 !text-2xl lg:!text-3xl" data-aos="fade-left">
+            class="block antialiased tracking-normal font-sans font-semibold leading-snug text-blue-gray-900 mb-4 !text-2xl lg:!text-3xl"
+            data-aos="fade-left">
             10th Anniversary of Nana Yaw Barima Twum <br> Sarkodie I</h3>
           <p class="block antialiased font-sans text-xl leading-relaxed text-inherit mb-4 font-normal !text-gray-500">
           </p>
           <h6
-            class="block antialiased tracking-normal font-sans text-base leading-relaxed text-inherit mb-10 font-semibold" data-aos="zoom-in">
+            class="block antialiased tracking-normal font-sans text-base leading-relaxed text-inherit mb-10 font-semibold"
+            data-aos="zoom-in">
             Cheers to a decade of Nana Yaw Barima Twum Sarkodie's inspiring journey, marked by resilience, growth, and
             boundless achievements. Here's to a legacy that continues to shine bright, illuminating the path for many
             more triumphant years ahead. Happy 10th Anniversary, Nana Yaw Barima Twum Sarkodie!</h6>
-          <div class="w-max" data-aos="zoom-in"><a href="10th_anni.html" ><button
+          <div class="w-max" data-aos="zoom-in"><a href="10th_anni.html"><button
                 class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50  text-xs py-2 px-4 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
                 type="button">View More</button><a /></div>
         </div>
@@ -349,13 +363,15 @@
         <div class="grid items-center py-12 px-2 lg:mr-16 lg:py-20">
 
           <h3
-            class="block antialiased tracking-normal font-sans font-semibold leading-snug text-blue-gray-900 mb-4 text-2xl lg:!text-3xl" data-aos="fade-right">
+            class="block antialiased tracking-normal font-sans font-semibold leading-snug text-blue-gray-900 mb-4 text-2xl lg:!text-3xl"
+            data-aos="fade-right">
             10 Years of Wisdom, Compassion, and Service: Nana Yaw Barima Twum Sarkodie I's Anniversary Charity Visit
           </h3>
           <p class="block antialiased font-sans text-xl leading-relaxed text-inherit mb-4 font-normal !text-gray-500">
           </p>
           <h6
-            class="block antialiased tracking-normal font-sans text-base leading-relaxed text-inherit mb-10 font-semibold" data-aos="zoom-in">
+            class="block antialiased tracking-normal font-sans text-base leading-relaxed text-inherit mb-10 font-semibold"
+            data-aos="zoom-in">
             On the auspicious occasion of his 10th Anniversary, Nana Yaw Barima Twum Sarkodie I graced a local school
             with his benevolent spirit, spreading joy and hope with acts of charity. His dedication to uplifting
             communities serves as a beacon of inspiration for us all. Here's to a decade of compassion and generosity,
@@ -364,8 +380,8 @@
               class="align-middle select-none font-sans font-bold text-center uppercase transition-all text-xs py-2 px-4 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
               type="button">View More</button></div>
         </div>
-        <div class="row-start-1 lg:row-auto lg:pl-10" data-aos="fade-up"><img src="images/Foundation/2.jpg" alt="background image"
-            class="h-full min-h-[20rem] w-full rounded-xl object-cover" /></div>
+        <div class="row-start-1 lg:row-auto lg:pl-10" data-aos="fade-up"><img src="images/Foundation/2.jpg"
+            alt="background image" class="h-full min-h-[20rem] w-full rounded-xl object-cover" /></div>
       </div>
     </div>
   </section>
@@ -377,29 +393,29 @@
   <div
     class="grid grid-cols-1 md:grid-cols-2 gap-2 min-h-[140px] place-items-center overflow-x-scroll rounded-lg p-6 lg:overflow-visible">
     <div data-aos="fade-right">
-    <figure class="relative  h-96 ">
-      <img class="object-cover object-center w-full h-full rounded-xl" src="images/Foundation/1.jpg"
-        alt="nature image" />
+      <figure class="relative  h-96 ">
+        <img class="object-cover object-center w-full h-full rounded-xl" src="images/Foundation/1.jpg"
+          alt="nature image" />
 
-      <figcaption
-        class="absolute bottom-8 left-2/4 flex w-[calc(100%-4rem)] -translate-x-2/4 justify-between rounded-xl border border-white bg-white/75 py-4 px-6 shadow-lg shadow-black/5 saturate-200 backdrop-blur-sm" >
+        <figcaption
+          class="absolute bottom-8 left-2/4 flex w-[calc(100%-4rem)] -translate-x-2/4 justify-between rounded-xl border border-white bg-white/75 py-4 px-6 shadow-lg shadow-black/5 saturate-200 backdrop-blur-sm">
 
-        <h3>Nana's donation of healthcare equipment significantly enhances medical services and community health.</h3>
+          <h3>Nana's donation of healthcare equipment significantly enhances medical services and community health.</h3>
 
-      </figcaption>
-    </figure>
-  </div>
+        </figcaption>
+      </figure>
+    </div>
 
     <!-- 2 -->
-  <div data-aos="fade-left">
-    <figure class="relative h-96" >
-      <img class="object-cover object-center w-full h-full rounded-xl" src="images/Health/2.jpg" alt="nature image" />
-      <figcaption 
-        class="absolute bottom-8 left-2/4 flex w-[calc(100%-4rem)] -translate-x-2/4 justify-between rounded-xl border border-white bg-white/75 py-4 px-6 shadow-lg shadow-black/5 saturate-200 backdrop-blur-sm" >
-        <h3>A group picture with Nana after the inter-schools quiz competition, 16th December, 2023</h3>
-      </figcaption>
-    </figure>
-  </div>
+    <div data-aos="fade-left">
+      <figure class="relative h-96">
+        <img class="object-cover object-center w-full h-full rounded-xl" src="images/Health/2.jpg" alt="nature image" />
+        <figcaption
+          class="absolute bottom-8 left-2/4 flex w-[calc(100%-4rem)] -translate-x-2/4 justify-between rounded-xl border border-white bg-white/75 py-4 px-6 shadow-lg shadow-black/5 saturate-200 backdrop-blur-sm">
+          <h3>A group picture with Nana after the inter-schools quiz competition, 16th December, 2023</h3>
+        </figcaption>
+      </figure>
+    </div>
 
   </div>
 
@@ -447,7 +463,7 @@
   <!-- components -->
   <div class="relative overflow-hidden bg-white pt-6">
     <!-- Decorative background image and gradient -->
-    <div aria-hidden="true" class="absolute inset-0" >
+    <div aria-hidden="true" class="absolute inset-0">
       <div class="absolute inset-0 mx-auto  overflow-hidden">
         <img src="images/10th_Anni/for_carosel.jpg" alt="" class="h-full w-full object-cover object-center">
       </div>
@@ -459,12 +475,15 @@
     <section aria-labelledby="sale-heading"
       class="relative mx-auto flex max-w-7xl flex-col items-center px-4 pt-32 text-center sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl lg:max-w-none">
-        <h2 id="sale-heading" class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl" data-aos="fade-down">Nana Yaw
+        <h2 id="sale-heading" class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl"
+          data-aos="fade-up">Nana Yaw
           Barima Twum Sarkodie I</h2>
-        <p class="mx-auto mt-4 max-w-xl text-xl text-gray-600" data-aos="fade-up">I thank you all for joining me to celebrate the 10th
+        <p class="mx-auto mt-4 max-w-xl text-xl text-gray-600" data-aos="fade-up">I thank you all for joining me to
+          celebrate the 10th
           anniversary of my enstoolment as Akwamuhene of this great town Akyem Awisa.</p>
         <a href="bio.html"
-          class="mt-6 inline-block w-full rounded-md border border-transparent bg-gray-900 px-8 py-3 font-medium text-white hover:bg-cyan-800 sm:w-auto" data-aos="zoom-in-up">Learn
+          class="mt-6 inline-block w-full rounded-md border border-transparent bg-gray-900 px-8 py-3 font-medium text-white hover:bg-cyan-800 sm:w-auto"
+          data-aos="zoom-in-up">Learn
           More </a>
       </div>
     </section>
@@ -473,8 +492,9 @@
     <section aria-labelledby="testimonial-heading"
       class="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32 pt-5">
       <div class="mx-auto max-w-2xl lg:max-w-none">
-        <h2 id="testimonial-heading" class="text-2xl font-bold tracking-tight text-gray-900" data-aos="zoom-out-down"> <span
-            class="text-teal-900">Making The</span><br><span class="text-5xl">Difference</span></h2>
+        <h2 id="testimonial-heading" class="text-2xl font-bold tracking-tight text-gray-900" data-aos="zoom-out-down">
+          <span class="text-teal-900">Making The</span><br><span class="text-5xl">Difference</span>
+        </h2>
 
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -527,7 +547,46 @@
   </div>
 
 
+  <!-- YouTube Cards -->
+  <section class="bg-gray-100 dark:bg-gray-700 ">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+      <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8" data-aos="fade-up">
+        <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Our Blog</h2>
+        <p class="font-light text-gray-700 sm:text-xl dark:text-gray-400">The Blog serves as a comprehensive resource
+          for understanding the rich cultural heritage, leadership, and developmental initiatives of Akyem Awisa.</p>
+      </div>
 
+
+      <div class="grid lg:grid-cols-3 gap-x-24 gap-10 rounded">
+
+        <!-- 1 -->
+        <iframe width="450" height="315" src="https://www.youtube.com/embed/E_HUrfQqUmA?si=6JxJtBLNXDO-TAL3"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="rounded-lg"
+          data-aos="fade-up"></iframe>
+
+
+        <!-- 2 -->
+        <iframe width="450" height="315" src="https://www.youtube.com/embed/SKL6YDtAAB8?si=7nJnWdOqXkCwHyZq"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="rounded-lg"
+          data-aos="fade-up"></iframe>
+
+
+        <!-- 3 -->
+        <iframe width="450" height="315" src="https://www.youtube.com/embed/9PZEmw2bI-M?si=Gytbk3nw2m6fQ0wc"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="rounded-lg"
+          data-aos="fade-up"></iframe>
+
+
+
+      </div>
+    </div>
+  </section>
 
 
 
@@ -644,13 +703,14 @@
   <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
   <!-- script -->
   <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/script-name.js"></script>
-  <script type="text/javascript" src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"></script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script type="text/javascript" src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({
-        duration: 2000,
-        once: false,
+      duration: 2000,
+      once: false,
     });
-</script>
+  </script>
 
 </body>
 
